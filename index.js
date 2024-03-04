@@ -21,9 +21,11 @@ app.get('/is_prime/:number', (req, res) => {
 
     const result = isPrime(number);
 
-    res.json(result);
+    res.send(result.toString());
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
+
+module.exports = { isPrime, server };
